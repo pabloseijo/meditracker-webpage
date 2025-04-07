@@ -1,0 +1,41 @@
+# Dependencias de Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build
+build/
+dist/
+
+# Archivos de configuración de desarrollo
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor y sistema operativo
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+*.swp
+
+# Cachés
+.cache/
+.next/
+out/
+
+# Archivos de prueba y cobertura
+coverage/
+.jest/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
+# Archivos de servicio
+firebase.json
+functions/node_modules/
+public/
