@@ -52,7 +52,7 @@ export const Contact = (props) => {
               <div className="section-title">
                 <h2>Contacta con nosotros</h2>
                 <p>
-                  ¿Tienes alguna pregunta? ¿Quieres saber más sobre nuestros servicios? ¡Estamos aquí para ayudarte! Reserva una cita y te resolveremos todas tus dudas.
+                  ¿Tienes alguna pregunta? ¿Quieres saber más sobre nuestros servicios? ¡Estamos aquí para ayudarte! Mandanos un correo y te resolveremos todas tus dudas.
                 </p>
               </div>
 
