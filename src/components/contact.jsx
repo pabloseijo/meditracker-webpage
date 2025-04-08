@@ -1,40 +1,8 @@
-import { useState } from "react";
-import emailjs from "emailjs-com";
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-const initialState = {
-  name: "",
-  email: "",
-  message: "",
-};
-
 export const Contact = (props) => {
-  const [{ name, email, message }, setState] = useState(initialState);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setState((prevState) => ({ ...prevState, [name]: value }));
-  };
-  
-  const clearState = () => setState({ ...initialState });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(name, email, message);
-    
-    emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
-      .then(
-        (result) => {
-          console.log(result.text);
-          clearState();
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  };
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -42,6 +10,16 @@ export const Contact = (props) => {
     script.async = true;
     document.body.appendChild(script);
   }, []);
+
+  useEffect(() => {
+    let timeout;
+    if (submitted) {
+      timeout = setTimeout(() => {
+        setSubmitted(false);
+      }, 5000); // 5000 ms = 5 segundos
+    }
+    return () => clearTimeout(timeout);
+  }, [submitted]);
 
   return (
     <div>
@@ -54,11 +32,20 @@ export const Contact = (props) => {
               </div>
 
               <p className="contact-text">
-
-                  ¿Tienes alguna pregunta? ¿Quieres saber más sobre nuestros servicios? ¡Estamos aquí para ayudarte! Mandanos un correo y te resolveremos todas tus dudas.
+                ¿Tienes alguna pregunta? ¿Quieres saber más sobre nuestros servicios? Estamos aquí para ayudarte. Mándanos un correo y resolveremos todas tus dudas.
               </p>
 
-              <form name="sentMessage" validate onSubmit={handleSubmit}>
+              {/* Formulario */}
+              <form
+                action="https://formsubmit.co/socratessat@gmail.com"
+                method="POST"
+                target="hidden_iframe"
+                onSubmit={() => setSubmitted(true)}
+                name="sentMessage"
+              >
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde el formulario web" />
+
                 <div className="row">
                   <div className="col-md-6">
                     <div className="form-group">
@@ -69,7 +56,6 @@ export const Contact = (props) => {
                         className="form-control"
                         placeholder="Nombre"
                         required
-                        onChange={handleChange}
                       />
                     </div>
                   </div>
@@ -82,11 +68,11 @@ export const Contact = (props) => {
                         className="form-control"
                         placeholder="Email"
                         required
-                        onChange={handleChange}
                       />
                     </div>
                   </div>
                 </div>
+
                 <div className="form-group">
                   <textarea
                     name="message"
@@ -95,74 +81,38 @@ export const Contact = (props) => {
                     rows="4"
                     placeholder="Mensaje"
                     required
-                    onChange={handleChange}
                   ></textarea>
                 </div>
+
                 <button type="submit" className="btn btn-custom btn-lg">
                   Enviar Mensaje
                 </button>
               </form>
 
-            </div>
-          </div>
-          
-          {/*
-          <div className="col-md-3 col-md-offset-1 contact-info">
-            <div className="contact-item">
-              <h3>Información de Contacto</h3>
-            </div>
-            <div className="contact-item">
-              <p>
-                <span>
-                  <i className="fa fa-phone"></i> Teléfono
-                </span>{" "}
-                {props.data ? props.data.phone : "loading"}
-              </p>
-            </div>
-            <div className="contact-item">
-              <p>
-                <span>
-                  <i className="fa fa-envelope"></i> Email
-                </span>{" "}
-                {props.data ? props.data.email : "loading"}
-              </p>
-            </div>
-          </div>
-         
+              {/* iframe oculto */}
+              <iframe 
+              name="hidden_iframe" 
+              style={{ display: "none" }}
+              title="Formulario de contacto oculto"
+              />
 
-          <div className="col-md-12">
-            <div className="row">
-              <div className="social">
-                <ul>
-                  <li>
-                    <a href={props.data ? props.data.facebook : "/"}>
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={props.data ? props.data.twitter : "/"}>
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={props.data ? props.data.youtube : "/"}>
-                      <i className="fab fa-youtube"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          */}
+              {/* Mensaje temporal */}
+              {submitted && (
+                <div className="alert alert-success mt-3">
+                  Mensaje enviado correctamente. Gracias por contactarnos.
+                </div>
+              )}
 
-          {/* Sección de Copyright */}
-          <div className="col-md-12 text-center copyright">
+              {/* Pie de página */}
+              <div className="col-md-12 text-center copyright">
                 <p>
                   © {new Date().getFullYear()} <strong>Meditracker</strong>. Todos los derechos reservados.
                 </p>
               </div>
-        </div>
-      </div>
+            </div> {/* .row */}
+          </div> {/* .col-md-12 */}
+        </div> {/* .container */}
+      </div> {/* #contact */}
     </div>
   );
 };
