@@ -38,4 +38,3 @@ coverage/
 # Archivos de servicio
 firebase.json
 functions/node_modules/
-public/

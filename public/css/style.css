@@ -1,0 +1,983 @@
+:root{
+  --color-primary: #00b4d8;        /* Azul principal */
+  --color-primary-dark: #0077b6;   /* Azul oscuro */
+  --color-secondary: #6c5ce7; /* Indigo moderno y profesional */
+  --color-text-light: #dcdcdc;
+  --color-white: #ffffff;
+  --color-primary-rgba: rgba(0, 180, 216, 0.3);       /* Sustituye al rosa 0.3 */
+  --color-secondary-rgba: rgba(108, 92, 231, 0.3);
+
+  --background-color-primary: #1a1a1a;
+  --background-color-secondary: #222222;
+
+}
+
+body,
+html {
+  font-family: "Open Sans", sans-serif;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  color: var(--color-text-light);
+  font-weight: 400;
+  width: 100% !important;
+  height: 100% !important;
+  background: var(--background-color-primary); /* Fondo oscuro */
+}
+
+h2,
+h3,
+h4 {
+  font-family: "Raleway", sans-serif;
+}
+h2 {
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  font-weight: 800;
+  font-size: 36px;
+  color: var(--color-white);
+}
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-white);
+}
+h4 {
+  font-size: 18px;
+  color: var(--color-white);
+  font-weight: 600;
+}
+h5 {
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 20px;
+}
+p {
+  font-size: 15px;
+  color: var(--color-text-light);
+}
+p.intro {
+  margin: 12px 0 0;
+  line-height: 24px;
+}
+a {
+  color: var(--color-primary);
+  font-weight: 400;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: var(--color-secondary);
+}
+ul,
+ol {
+  list-style: none;
+}
+ul,
+ol {
+  padding: 0;
+}
+hr {
+  height: 2px;
+  width: 70px;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  margin-bottom: 20px;
+  border: 0;
+}
+
+
+
+/* 🌟 Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 0;
+  transition: all 0.5s ease-in-out;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0);
+}
+
+/* 🌟 Navbar con Glassmorphism al hacer scroll */
+.navbar.scrolled {
+  background: rgba(26, 26, 26, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 🌟 Contenedor del Navbar */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* 🌟 Logo de la Empresa */
+.navbar-logo img {
+  height: 50px;
+  transition: transform 0.3s ease-in-out, height 0.3s ease-in-out;
+  transform: translateY(-5px);
+}
+
+/* 🌟 Menú de Navegación */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 🌟 Enlaces del menú */
+.navbar-menu li {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-menu li a {
+  color: white;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  padding: 8px 12px;
+}
+
+/* 🌟 Efecto de Subrayado en Hover */
+.navbar-menu li a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  transition: width 0.3s ease-in-out;
+}
+
+.navbar-menu li a:hover::after {
+  width: 100%;
+}
+
+/* 🌟 Botón CTA (Empieza) */
+.cta-button {
+  padding: 8px 16px;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  color: white !important;
+  border-radius: 25px;
+  transition: all 0.4s ease-in-out;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0px 4px 10px var(--color-primary-rgba);
+}
+
+/* 🌟 Efecto de hover */
+.cta-button:hover {
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  box-shadow: 0px 0px 20px rgba(0, 180, 216, 0.7);
+  transform: scale(1.05);
+}
+
+/* 🌟 Efecto de presión */
+.cta-button:active {
+  transform: scale(0.98);
+  box-shadow: 0px 0px 15px rgba(0, 180, 216, 0.6);
+}
+
+/* 🔥 Ocultar el botón hamburguesa en pantallas grandes */
+.menu-toggle {
+  display: none;
+}
+
+/* 🌟 Oculta el menú móvil en pantallas grandes */
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+/* 🌟 Menú Hamburguesa (solo en móviles) */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none; /* 🔥 Oculta el menú normal en móviles */
+  }
+
+  /* Muestra el botón hamburguesa */
+  .menu-toggle {
+    display: block;
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Menú lateral oculto */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    z-index: 1100;
+  }
+
+  /* Cuando el menú está abierto */
+  .mobile-menu.open {
+    right: 0;
+  }
+
+  /* Botón para cerrar */
+  .close-menu {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Lista del menú */
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .mobile-menu ul li {
+    margin: 20px 0;
+  }
+
+  .mobile-menu ul li a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+  }
+
+  /* Hover en los enlaces */
+  .mobile-menu ul li a:hover {
+    color: var(--color-primary);
+  }
+
+  /* 🔥 Ajuste del botón "Empieza" dentro del menú móvil */
+  .mobile-menu .cta-button {
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
+  }
+}
+
+
+
+/* Botón personalizado */
+.btn-custom {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  background-image: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  padding: 14px 34px;
+  letter-spacing: 1px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 25px;
+  transition: all 0.4s ease-in-out;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 4px 15px var(--color-secondary-rgba); /* Glow inicial */
+}
+
+/* Efecto de foco (hover) */
+.btn-custom:hover,
+.btn-custom:focus {
+  color: #fff;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  box-shadow: 0px 0px 25px rgba(0, 180, 216, 0.8); /* Glow más fuerte */
+  transform: scale(1.05); /* Pequeño zoom */
+}
+
+/* Efecto de presión al hacer clic */
+.btn-custom:active,
+.btn-custom.active {
+  transform: scale(0.98); /* Simula presión */
+  box-shadow: 0px 0px 15px rgba(0, 180, 216, 0.6);
+}
+
+/* Elimina bordes y efectos indeseados */
+a:focus,
+.btn-custom:focus,
+.btn-custom:active:focus,
+.btn-custom.active:focus,
+.btn-custom.focus,
+.btn-custom:active.focus,
+.btn-custom.active.focus {
+  outline: none;
+  outline-offset: none;
+}
+
+
+/* Header Section */
+.intro {
+  position: relative;
+  width: 100%;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  margin: 0;
+  background: var(--background-color-primary) url("/img/intro-bg.jpg") center center no-repeat;
+  background-size: cover;
+  
+}
+
+.intro .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* sombra semitransparente */
+  z-index: 1;
+}
+
+header .intro-text {
+  position: relative; /* para que esté sobre el overlay */
+  z-index: 2;         /* texto por encima de la sombra */
+  display: flex;      /* si quieres centrar vertical/horizontal */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;  /* ocupa al menos toda la pantalla */
+  text-align: center;
+  padding: 0 20px;    /* un poco de padding lateral */
+}
+
+.intro h1 {
+  font-family: "Raleway", sans-serif;
+  color: #fff;
+  font-size: 82px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.intro h1 span {
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.intro p {
+  color: var(--color-white);
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 30px;
+  margin-bottom: 60px;
+}
+
+
+
+/* Features Section */
+#features {
+  background: var(--background-color-primary);
+  padding: 100px 0; /* Se iguala a las demás secciones */
+  margin: 0 auto; /* Centrado */
+  text-align: center; /* Asegura alineación */
+}
+#features i.fa {
+  font-size: 38px;
+  margin-bottom: 20px;
+  transition: all 0.5s;
+  color: #fff;
+  width: 100px;
+  height: 100px;
+  padding: 30px 0;
+  border-radius: 50%;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+#features .container {
+  max-width: 1200px; /* Asegura consistencia con otras secciones */
+  margin: 0 auto;
+}
+#features .section-title {
+  margin-bottom: 50px;
+}
+#features h2 {
+  color: var(--color-white);
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  position: relative;
+}
+#features h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#features .btn-custom {
+  margin-top: 25px;
+}
+
+/* About Section */
+#about {
+  padding: 100px 0;
+  background: var(--background-color-primary);
+  text-align: center;
+}
+
+/* TÍTULO PRINCIPAL */
+#about h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+}
+
+/* SUBRAYADO DEGRADADO */
+#about h2::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* TEXTO PRINCIPAL */
+#about p {
+  max-width: 800px;
+  margin: 20px auto;
+  line-height: 1.8;
+  font-size: 18px;
+  color: var(--color-text-light);
+  text-align: center;
+}
+
+/* TÍTULO "¿POR QUÉ ELEGIRNOS?" MÁS PEQUEÑO */
+#about h3 {
+  font-size: 25px; /* Reducimos el tamaño */
+  font-weight: 600;
+  color: var(--color-white);
+  margin-top: 40px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  display: inline-block;
+}
+
+/* SUBRAYADO MÁS PEQUEÑO */
+#about h3::after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* LISTA DE BENEFICIOS */
+#about .about-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#about .about-list li {
+  font-size: 18px; /* Reducimos un poco el tamaño */
+  color: var(--color-text-light);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* ÍCONO DE CHECK */
+#about .about-list li i {
+  color: var(--color-primary);
+  margin-right: 10px;
+  font-size: 16px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* EFECTO HOVER EN LISTA */
+#about .about-list li:hover i {
+  transform: scale(1.2);
+}
+
+#about .btn-custom {
+  margin-top: 50px;
+}
+
+/*//////////////////*/
+/* Services Section */
+#services {
+  padding: 100px 0;
+  background: #222222; /* Fondo negro */
+  color: var(--color-white);
+}
+#services .service-desc {
+  margin: 10px 10px 20px;
+}
+#services h2 {
+  color: var(--color-white);
+}
+
+#services .section-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+}
+
+#services .section-title h2::after {
+  position: absolute;
+  content: "";
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  height: 4px;
+  width: 60px;
+  bottom: 10px;
+  margin-left: -30px;
+  left: 50%;
+}
+
+#services i.fa {
+  font-size: 42px;
+  width: 120px;
+  height: 120px;
+  padding: 40px 0;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  border-radius: 50%;
+  color: var(--color-white);
+  box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.1);
+}
+#services h3 {
+  font-weight: 500;
+  padding: 5px 0;
+  color: var(--color-white);
+}
+#services p {
+  color: rgba(255, 255, 255, 0.85);
+}
+#services .service-desc {
+  margin-bottom: 40px;
+}
+#services .btn-custom {
+  margin-top: 25px;
+}
+
+/* Gallery Section */
+#portfolio {
+  padding: 100px 0;
+  background: #222222;
+  text-align: center;
+}
+
+/* Ajuste del título con subrayado centrado */
+#portfolio .section-title {
+  margin-bottom: 50px;
+  position: relative;
+}
+
+#portfolio .section-title h2 {
+  position: relative;
+  display: inline-block;
+  color: var(--color-white);
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#portfolio .section-title h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Estilo de las imágenes del portfolio */
+.portfolio-item {
+  margin: 10px;
+  padding: 0;
+}
+
+/* Hover effect en las imágenes */
+.portfolio-item .hover-bg {
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  border-radius: 10px;
+}
+
+.hover-bg .hover-text {
+  position: absolute;
+  text-align: center;
+  color: var(--color-white);
+  background: linear-gradient(
+    to right,
+    rgba(0, 180, 216, 0.8) 0%,
+    rgba(155, 89, 182, 0.8) 100%
+  );
+  padding: 30% 0 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  border-radius: 10px;
+}
+
+/* Texto dentro del hover */
+.hover-bg .hover-text > h4 {
+  opacity: 0;
+  color: var(--color-white);
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  transition: all 0.3s ease-in-out;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Efecto cuando se pasa el mouse */
+.hover-bg:hover .hover-text > h4 {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.hover-bg:hover .hover-text {
+  opacity: 1;
+}
+
+
+
+
+
+/* Contact Section */
+#contact {
+  padding: 100px 0 60px;
+  background: #222222; /* Fondo negro */
+  color: rgba(255, 255, 255, 0.85);
+}
+
+#contact .section-title {
+  margin-bottom: 40px;
+  position: relative;
+  text-align: center;
+}
+
+#contact .section-title p {
+  font-size: 16px;
+  color: var(--color-text-light);
+}
+
+#contact h2 {
+  color: var(--color-white);
+  margin-top: 5px; /* Menos separación */
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+
+#contact .section-title h2::after {
+  position: absolute;
+  content: "";
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  height: 4px;
+  width: 60px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#contact h3 {
+  color: var(--color-white);
+  font-size: 18px; /* Más pequeño */
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  font-weight: 400;
+}
+
+#contact .section-title h2::after {
+  position: absolute;
+  content: "";
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  height: 4px;
+  width: 60px;
+  bottom: 50%;
+}
+
+#contact form {
+  padding-top: 20px;
+}
+
+#contact .text-danger {
+  color: #ff4d4d;
+  text-align: left;
+}
+
+#contact .btn-custom {
+  margin: 30px 0;
+  background: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Efecto glow en botón */
+#contact .btn-custom:hover {
+  color: var(--color-white);
+  background: var(--color-primary);
+  box-shadow: 0 0 15px var(--color-primary); /* Efecto de foco */
+  transform: scale(1.05);
+}
+
+label {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  float: left;
+  color: var(--color-white);
+}
+
+#contact .form-control {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: var(--color-white);
+  background-color: #222;
+  border: 2px solid var(--color-primary);
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Efecto cuando el input está enfocado */
+#contact .form-control:focus {
+  border-color: var(--color-secondary);
+  outline: 0;
+  box-shadow: 0 0 10px var(--color-secondary);
+}
+
+/* Placeholder más visible */
+.form-control::placeholder {
+  color: #bbb;
+}
+
+#contact .contact-item {
+  margin: 20px 0;
+}
+
+#contact .contact-item span {
+  color: var(--color-white);
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Redes sociales */
+#contact .social {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 50px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+#contact .social ul {
+  padding: 0;
+  margin: 0;
+}
+
+#contact .social ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+#contact .social i.fab {
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  padding: 15px 0;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Efecto Glow al pasar el ratón */
+#contact .social i.fab:hover {
+  color: var(--color-white);
+  background: var(--color-primary);
+  box-shadow: 0 0 15px var(--color-primary);
+  transform: scale(1);
+}
+
+.copyright {
+  margin-top: 40px;
+  padding-top: 20px;
+  color: var(--color-text-light);
+  font-size: 14px;
+  text-align: center;
+  border-top: 1px solid var(--color-text-light); /* Línea superior */
+  width: 100%; /* Asegura que la línea ocupe toda la pantalla */
+}
+
+
+/* Footer Section */
+#footer {
+  background: #000000;
+  padding: 30px 0;
+}
+#footer p {
+  color: var(--color-text-light);
+  font-size: 14px;
+}
+#footer a {
+  color: var(--color-primary);
+}
+#footer a:hover {
+  border-bottom: 2px solid var(--color-primary);
+}
+
+
+
+
+/* 📱 Para móviles estándar (menos de 768px) */
+@media (max-width: 768px) {
+
+  h1 {
+    font-size: 48px; /* Antes era 82px */
+  }
+  h2 {
+    font-size: 28px;
+  }
+  p {
+    font-size: 14px;
+  }
+
+  #features .row {
+    display: flex;
+    flex-direction: column; /* Se apilan en una columna */
+    align-items: center;
+    text-align: center;
+  }
+
+  #features .col-md-3 {
+    width: 100%; /* Ocupan todo el ancho */
+    margin-bottom: 20px; /* Espacio entre los elementos */
+  }
+
+  #features .col-md-3:last-child {
+    margin-bottom: 0; /* Elimina el espacio del último elemento */
+  }
+
+  #about .about-list {
+    max-width: 100%; /* Ocupa todo el ancho */
+    text-align: center;
+  }
+}
+
+
+/* 📟 Para tablets (entre 768px y 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  #features .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  #features .col-md-3 {
+    width: 45%; /* Dos columnas */
+    text-align: center;
+  }
+  
+  #about .about-list {
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+
+  #header {
+    transform: translateX(5%);
+    width: 100%;
+  }
+
+  .intro {
+    position: relative;
+    width: 100%;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    margin: 0;
+    background: var(--color-white) url("/img/intro-bg.jpg") center center no-repeat;
+    background-size: cover; 
+  }
+
+}
+
+
