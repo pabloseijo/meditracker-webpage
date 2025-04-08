@@ -9,15 +9,15 @@
   }
 
   #header h1 {
-    font-size: 2.5rem;
+    font-size: 5rem;
   }
 
   #header p {
-    font-size: 1rem;
+    font-size: 3rem;
   }
 
   #header .btn-custom {
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     padding: 8px 20px;
   }
 
