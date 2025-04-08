@@ -1,7 +1,47 @@
-@media screen and (max-width: 400px) {
+
+/* RESPONSIVE para móviles */
+@media screen and (max-width: 768px) {
+  #header {
+    height: 100vh;
+    padding: 0 0px;
+
+    transform: translateX(0px);
+  }
+
+  #header h1 {
+    font-size: 2.5rem;
+  }
+
+  #header p {
+    font-size: 1rem;
+  }
+
+  #header .btn-custom {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+  }
+
+
+  #header .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #header .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  #header .overlay {
+    width: 100vw;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
   #features {
-    padding: 20px;
-    width: 111%;
+    padding: 20px 10px;
+    width: 100%;
+    box-sizing: border-box;
   }
   #about,
   #services,
@@ -9,10 +49,14 @@
   #team,
   #contact,
   #footer {
-    width: 111%;
+    padding: 20px 10px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   #portfolio {
-    width: 110%;
+    padding: 20px 10px;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
