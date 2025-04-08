@@ -1,0 +1,12 @@
+# Permite a todos los motores de búsqueda indexar el sitio
+User-agent: *
+Allow: /
+
+# Evita que indexen páginas sensibles (si existen en tu sitio)
+Disallow: /admin/
+Disallow: /login/
+Disallow: /cart/
+Disallow: /checkout/
+
+# Indica a los buscadores dónde encontrar el sitemap para mejorar la indexación
+Sitemap: https://www.evolutia.dev/sitemap.xml
