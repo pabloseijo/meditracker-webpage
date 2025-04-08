@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-export const Contact = (props) => {
+export const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -16,10 +21,23 @@ export const Contact = (props) => {
     if (submitted) {
       timeout = setTimeout(() => {
         setSubmitted(false);
-      }, 5000); // 5000 ms = 5 segundos
+      }, 5000);
     }
     return () => clearTimeout(timeout);
   }, [submitted]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = () => {
+    setSubmitted(true);
+    setTimeout(() => {
+      setFormData({ name: "", email: "", message: "" });
+    }, 100); // 100 ms es suficiente para que el navegador capture los datos del form
+  };
+  
 
   return (
     <div>
@@ -35,12 +53,11 @@ export const Contact = (props) => {
                 ¿Tienes alguna pregunta? ¿Quieres saber más sobre nuestros servicios? Estamos aquí para ayudarte. Mándanos un correo y resolveremos todas tus dudas.
               </p>
 
-              {/* Formulario */}
               <form
                 action="https://formsubmit.co/socratessat@gmail.com"
                 method="POST"
                 target="hidden_iframe"
-                onSubmit={() => setSubmitted(true)}
+                onSubmit={handleSubmit}
                 name="sentMessage"
               >
                 <input type="hidden" name="_captcha" value="false" />
@@ -55,6 +72,8 @@ export const Contact = (props) => {
                         name="name"
                         className="form-control"
                         placeholder="Nombre"
+                        value={formData.name}
+                        onChange={handleChange}
                         required
                       />
                     </div>
@@ -67,6 +86,8 @@ export const Contact = (props) => {
                         name="email"
                         className="form-control"
                         placeholder="Email"
+                        value={formData.email}
+                        onChange={handleChange}
                         required
                       />
                     </div>
@@ -80,6 +101,8 @@ export const Contact = (props) => {
                     className="form-control"
                     rows="4"
                     placeholder="Mensaje"
+                    value={formData.message}
+                    onChange={handleChange}
                     required
                   ></textarea>
                 </div>
@@ -89,30 +112,27 @@ export const Contact = (props) => {
                 </button>
               </form>
 
-              {/* iframe oculto */}
-              <iframe 
-              name="hidden_iframe" 
-              style={{ display: "none" }}
-              title="Formulario de contacto oculto"
+              <iframe
+                name="hidden_iframe"
+                style={{ display: "none" }}
+                title="Formulario de contacto oculto"
               />
 
-              {/* Mensaje temporal */}
               {submitted && (
                 <div className="alert alert-success mt-3">
                   Mensaje enviado correctamente. Gracias por contactarnos.
                 </div>
               )}
 
-              {/* Pie de página */}
               <div className="col-md-12 text-center copyright">
                 <p>
                   © {new Date().getFullYear()} <strong>Meditracker</strong>. Todos los derechos reservados.
                 </p>
               </div>
-            </div> {/* .row */}
-          </div> {/* .col-md-12 */}
-        </div> {/* .container */}
-      </div> {/* #contact */}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
