@@ -458,7 +458,7 @@ header .intro-text {
 /* About Section */
 #about {
   padding: 100px 0;
-  background: var(--background-color-primary);
+  background: var(--background-color-secondary);
   text-align: center;
 }
 
@@ -714,7 +714,7 @@ header .intro-text {
 /* Contact Section */
 #contact {
   padding: 100px 0 60px;
-  background: var(--background-color-primary); /* Fondo negro */
+  background: var(--background-color-secondary); /* Fondo negro */
   color: rgba(255, 255, 255, 0.85);
 }
 
@@ -1000,7 +1000,7 @@ label {
 
 #team{
   padding: 100px 0 60px;
-  background-color: var(--background-color-secondary)
+  background-color: var(--background-color-primary)
 }
 
 #team .section-title h2 {
@@ -1226,4 +1226,128 @@ label {
 .usecase-card p {
   color: var(--color-text-light);
   font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* DATOS Y ESTADÍSTICAS */
+#impact {
+  padding: 100px 0 80px;
+  background-color: var(--background-color-primary);
+}
+
+#impact .section-title h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+#impact .section-title h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  border-radius: 2px;
+}
+
+#impact .section-title p {
+  font-size: 18px; /* o 18px si quieres que se note más */
+  color: var(--color-text-light);
+  margin-top: 10px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+
+.impact-charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* máximo 2 por fila */
+  gap: 40px;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+/* Solo una por fila en pantallas pequeñas */
+@media (max-width: 768px) {
+  .impact-charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: 600px;
+  margin: 40px auto 0;
+  gap: 30px;
+}
+
+.impact-card {
+  background-color: var(--background-color-secondary);
+  border-radius: 16px;
+  padding: 30px 20px;
+  box-shadow: 0 0 15px rgba(0, 180, 216, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.impact-card:hover {
+  transform: translateY(-5px);
+}
+
+.impact-card i {
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.impact-card h3 {
+  font-size: 28px;
+  color: var(--color-white);
+  margin-bottom: 10px;
+}
+
+.impact-card p {
+  color: var(--color-text-light);
+  font-size: 15px;
+}
+
+.card-glow {
+  background-color: var(--background-color-secondary);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 0 auto 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 12px var(--color-primary-rgba);
+  max-width: 800px;
+  width: 100%;
+}
+
+.card-glow:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px var(--color-primary-rgba),
+              0 0 35px var(--color-secondary-rgba);
+}
+
+.chart-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 20px;
+  text-align: center;
 }
