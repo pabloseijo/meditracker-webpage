@@ -95,6 +95,8 @@
       }
     ]
 ,
+
+
   "Testimonials": [
     {
       "img": "img/testimonials/01.jpg",
@@ -127,28 +129,61 @@
       "name": "Johnathan Doe"
     }
   ],
+
+
   "Team": [
     {
-      "img": "img/team/01.jpg",
-      "name": "John Doe",
-      "job": "Director"
+      "img": "img/team/socrates.jpg",
+      "name": "Sócrates Agudo",
+      "job": "Desarrollador Backend",
+      "stack": ["python", "docker"],
+      "linkedin": "https://www.linkedin.com/in/s%C3%B3crates-agudo-06a90223a/"
     },
     {
-      "img": "img/team/02.jpg",
-      "name": "Mike Doe",
-      "job": "Senior Designer"
+      "img": "img/team/carpintero.jpg",
+      "name": "David Carpintero",
+      "job": "Desarrollador Backend",
+      "stack": ["python", "docker"],
+      "linkedin": "https://www.linkedin.com/in/david-carpintero-diaz-0629b3327/"
+
     },
     {
-      "img": "img/team/03.jpg",
-      "name": "Jane Doe",
-      "job": "Senior Designer"
+      "img": "img/team/lobato.jpeg",
+      "name": "Pablo Lobato",
+      "job": "Desarrollador Backend",
+      "stack": ["python", "docker"],
+      "linkedin": "https://www.linkedin.com/in/pablo-lobato/"
     },
     {
-      "img": "img/team/04.jpg",
-      "name": "Karen Doe",
-      "job": "Project Manager"
+      "img": "img/team/javi.jpg",
+      "name": "Javier Pereira",
+      "job": "Desarrollador Frontend",
+      "stack": ["kotlin", "docker"],
+      "linkedin": "https://www.linkedin.com/in/javier-pereira-romero-30ab21263/"
+    },
+    {
+      "img": "img/team/migui.jpg",
+      "name": "Miguel Leal",
+      "job": "Desarrollador Frontend",
+      "stack": ["kotlin", "docker"],
+      "linkedin": "https://www.linkedin.com/in/miguel-leal-fern%C3%A1ndez-6a0852329/"
+    },
+    {
+      "img": "img/team/seijo.jpg",
+      "name": "Pablo Seijo",
+      "job": "Desarrollador Frontend",
+      "stack": ["kotlin", "docker"],
+      "linkedin": "https://www.linkedin.com/in/pablo-seijo-7055141b0/"
+    },
+    {
+      "img": "img/team/alexperez.jpeg",
+      "name": "Alejandro Pérez",
+      "job": "Chief Financial Officer",
+      "linkedin": "https://www.linkedin.com/in/alejandro-p%C3%A9rez-6b876b294/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
     }
   ],
+
+
   "Contact": {
     "address": "4321 California St, San Francisco, CA 12345 ",
     "phone": "+1 123 456 1234",
@@ -157,6 +192,8 @@
     "twitter": "twitter.com",
     "youtube": "youtube.com"
   },
+
+
   "Features": [
     {
       "icon": "fa fa-notes-medical",

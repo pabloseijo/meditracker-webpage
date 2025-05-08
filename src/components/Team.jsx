@@ -5,22 +5,58 @@ export const Team = (props) => {
     <div id="team" className="text-center">
       <div className="container">
         <div className="col-md-8 col-md-offset-2 section-title">
-          <h2>Meet the Team</h2>
+          <h2>Nuestro equipo</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-            dapibus leonec.
+            Personas comprometidas con la salud digital del futuro.
           </p>
         </div>
-        <div id="row">
+        <div className="row">
           {props.data
             ? props.data.map((d, i) => (
-                <div key={`${d.name}-${i}`} className="col-md-3 col-sm-6 team">
-                  <div className="thumbnail">
-                    {" "}
-                    <img src={d.img} alt="..." className="team-img" />
-                    <div className="caption">
-                      <h4>{d.name}</h4>
-                      <p>{d.job}</p>
+                <div key={`${d.name}-${i}`} className="col-sm-6 col-md-3 team">
+                  <div className="team-border">
+                    <div className="thumbnail">
+                      <div className="image-container">
+                        <img src={d.img} alt={d.name} className="team-img" />
+                      </div>
+                      <div className="caption">
+                        <h4>{d.name}</h4>
+                        <p>{d.job}</p>
+
+                        {d.stack && (
+                          <div className="stack-icons">
+                            {d.stack.map((tech, idx) => {
+                              if (tech.toLowerCase() === "kotlin") {
+                                return (
+                                  <span
+                                    key={idx}
+                                    className="tech-img-icon"
+                                    title="Kotlin"
+                                    style={{ maskImage: 'url(/kotlin.svg)', WebkitMaskImage: 'url(/kotlin.svg)' }}
+                                  />
+                                );
+                              }
+
+                              return (
+                                <i
+                                  key={idx}
+                                  className={`fab fa-${tech.toLowerCase()}`}
+                                  title={tech}
+                                ></i>
+                              );
+                            })}
+                          </div>
+                        )}
+
+
+                        {d.linkedin && (
+                          <div className="socials">
+                            <a href={d.linkedin} target="_blank" rel="noopener noreferrer">
+                              <i className="fab fa-linkedin"></i>
+                            </a>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
