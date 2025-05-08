@@ -7,8 +7,8 @@
   --color-primary-rgba: rgba(0, 180, 216, 0.3);       /* Sustituye al rosa 0.3 */
   --color-secondary-rgba: rgba(108, 92, 231, 0.3);
 
-  --background-color-primary: #1a1a1a;
-  --background-color-secondary: #222222;
+  --background-color-primary: #222222;
+  --background-color-secondary: #1a1a1a;
 
 }
 
@@ -410,7 +410,7 @@ header .intro-text {
 
 /* Features Section */
 #features {
-  background: var(--background-color-primary);
+  background: var(--background-color-secondary);
   padding: 100px 0; /* Se iguala a las demás secciones */
   margin: 0 auto; /* Centrado */
   text-align: center; /* Asegura alineación */
@@ -562,7 +562,7 @@ header .intro-text {
 /* Services Section */
 #services {
   padding: 100px 0;
-  background: #222222; /* Fondo negro */
+  background: var(--background-color-secondary); /* Fondo negro */
   color: var(--color-white);
 }
 #services .service-desc {
@@ -1146,4 +1146,84 @@ label {
   .team {
     margin-bottom: 30px;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* USECASSES */
+#usecases {
+  padding: 100px 0 60px;
+}
+
+#usecases .section-title h2 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 32px;
+  color: var(--color-white);
+}
+
+#usecases .section-title h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  border-radius: 2px;
+}
+
+#usecases .btn {
+  margin-top: 50px;
+}
+
+
+
+.usecase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.usecase-card {
+  background-color: var(--background-color-secondary);
+  border-radius: 16px;
+  padding: 30px 20px;
+  box-shadow: 0 0 15px rgba(0, 180, 216, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.usecase-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
+}
+
+.usecase-card i {
+  color: var(--color-primary);
+  margin-bottom: 15px;
+}
+
+.usecase-card h3 {
+  color: var(--color-white);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.usecase-card p {
+  color: var(--color-text-light);
+  font-size: 14px;
 }
