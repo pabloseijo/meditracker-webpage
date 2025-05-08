@@ -10,7 +10,7 @@ export const Team = (props) => {
             Personas comprometidas con la salud digital del futuro.
           </p>
         </div>
-        <div className="row">
+       <div className="row">
           {props.data
             ? props.data.map((d, i) => (
                 <div key={`${d.name}-${i}`} className="col-sm-6 col-md-3 team">
@@ -23,29 +23,34 @@ export const Team = (props) => {
                         <h4>{d.name}</h4>
                         <p>{d.job}</p>
 
-                        {d.stack && (
-                          <div className="stack-icons">
-                            {d.stack.map((tech, idx) => {
-                              if (tech.toLowerCase() === "kotlin") {
-                                return (
-                                  <span
-                                    key={idx}
-                                    className="tech-img-icon"
-                                    title="Kotlin"
-                                    style={{ maskImage: 'url(/kotlin.svg)', WebkitMaskImage: 'url(/kotlin.svg)' }}
-                                  />
-                                );
-                              }
+                        {d.stack && d.stack.length > 0 ? (
+                            <div className="stack-icons">
+                              {d.stack.map((tech, idx) => {
+                                if (tech.toLowerCase() === "kotlin") {
+                                  return (
+                                    <span
+                                      key={idx}
+                                      className="tech-img-icon"
+                                      title="Kotlin"
+                                      style={{
+                                        maskImage: "url(/kotlin.svg)",
+                                        WebkitMaskImage: "url(/kotlin.svg)",
+                                      }}
+                                    />
+                                  );
+                                }
 
-                              return (
-                                <i
-                                  key={idx}
-                                  className={`fab fa-${tech.toLowerCase()}`}
-                                  title={tech}
-                                ></i>
-                              );
-                            })}
-                          </div>
+                                return (
+                                  <i
+                                    key={idx}
+                                    className={`fab fa-${tech.toLowerCase()}`}
+                                    title={tech}
+                                  ></i>
+                                );
+                              })}
+                            </div>
+                          ) : (
+                            <div className="stack-icons" style={{ height: "25px" }}></div>
                         )}
 
 

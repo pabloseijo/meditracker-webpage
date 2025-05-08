@@ -1000,7 +1000,7 @@ label {
 
 #team{
   padding: 100px 0 60px;
-  background-color: var(--background-color-secondary);
+  background-color: var(--background-color-secondary)
 }
 
 #team .section-title h2 {
@@ -1021,6 +1021,12 @@ label {
   border-radius: 2px;
 }
 
+.team {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .team .thumbnail {
   background-color: var(--background-color-secondary);
   border: none; /* <- Asegura que no haya bordes */
@@ -1030,6 +1036,10 @@ label {
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 0 12px var(--color-primary-rgba); /* Glow inicial */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 /* Hover glow con mezcla de colores */
