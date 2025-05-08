@@ -27,18 +27,20 @@ export const Team = (props) => {
                             <div className="stack-icons">
                               {d.stack.map((tech, idx) => {
                                 if (tech.toLowerCase() === "kotlin") {
+                                  const kotlinUrl = `${process.env.PUBLIC_URL}/kotlin.svg`;
                                   return (
                                     <span
                                       key={idx}
                                       className="tech-img-icon"
                                       title="Kotlin"
                                       style={{
-                                        maskImage: "url(/kotlin.svg)",
-                                        WebkitMaskImage: "url(/kotlin.svg)",
+                                        maskImage: `url(${kotlinUrl})`,
+                                        WebkitMaskImage: `url(${kotlinUrl})`,
                                       }}
                                     />
                                   );
                                 }
+                                
 
                                 return (
                                   <i
