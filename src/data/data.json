@@ -217,6 +217,8 @@
       "text": "Reduce hospitalizaciones evitables y mejora los resultados clínicos, generando ahorros significativos y retorno de inversión elevado."
     }
   ],
+
+
   "UseCases": [
     {
       "icon": "fa-hospital",
@@ -238,6 +240,34 @@
       "title": "Pacientes Crónicos",
       "text": "Facilita su autonomía con recordatorios personalizados y conectividad con profesionales."
     }
+  ],
+  
+
+  "Impact": [
+    {
+      "icon": "fa-chart-line",
+      "label": "Mejora en Adherencia",
+      "value": 20,
+      "suffix": "%"
+    },
+    {
+      "icon": "fa-euro-sign",
+      "label": "Ahorro por Paciente/Año",
+      "prefix": "~",
+      "value": 164.45,
+      "suffix": "€"
+    },
+    {
+      "icon": "fa-building",
+      "label": "Instituciones en 3 Años",
+      "value": 200
+    },
+    {
+      "icon": "fa-users",
+      "label": "Clientes Acumulados",
+      "value": 58
+    }
   ]
+  
   
 }

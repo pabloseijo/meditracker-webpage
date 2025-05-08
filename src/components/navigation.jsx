@@ -27,6 +27,7 @@ export const Navigation = () => {
             <li><a href="#features">¿Por qué?</a></li>
             <li><a href="#usecases">¿Para Quién?</a></li>
             <li><a href="#services">¿Qué Hace?</a></li>
+            <li><a href="#impact">Datos</a></li>
             <li><a href="#about">¿Quiénes Somos?</a></li>
             <li><a href="#contact" className="cta-button">Empieza</a></li>
           </ul>
@@ -43,6 +44,7 @@ export const Navigation = () => {
           <li><a href="#features" onClick={() => setMenuOpen(false)}>¿Por qué?</a></li>
           <li><a href="#usecases" onClick={() => setMenuOpen(false)}>¿Para Quién?</a></li>
           <li><a href="#services" onClick={() => setMenuOpen(false)}>¿Qué Hacen?</a></li>
+          <li><a href="#impact" onClick={() => setMenuOpen(false)}>Datos</a></li>
           <li><a href="#about" onClick={() => setMenuOpen(false)}>¿Quiénes Somos?</a></li>
           <li><a href="#team" onClick={() => setMenuOpen(false)}>Nuestro Equipo</a></li>
           <li><a href="#contact" className="cta-button" onClick={() => setMenuOpen(false)}>Empieza</a></li>
