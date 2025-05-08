@@ -946,7 +946,7 @@ label {
   }
 
   #about .about-list {
-    max-width: 100%; /* Ocupa todo el ancho */
+    max-width: auto; /* Ocupa todo el ancho */
     text-align: center;
   }
 }
@@ -967,7 +967,7 @@ label {
   }
   
   #about .about-list {
-    text-align: center;
+    text-align: left;
   }
 }
 
@@ -1021,12 +1021,6 @@ label {
   border-radius: 2px;
 }
 
-.team {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
 .team .thumbnail {
   background-color: var(--background-color-secondary);
   border: none; /* <- Asegura que no haya bordes */
@@ -1041,6 +1035,7 @@ label {
   justify-content: space-between;
   height: 100%;
 }
+
 
 /* Hover glow con mezcla de colores */
 .team .thumbnail:hover {

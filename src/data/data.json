@@ -7,11 +7,11 @@
     "paragraph": "Somos MediTracker, un equipo de seis estudiantes de Ingeniería Informática en la Universidad de Santiago de Compostela (USC), comprometidos con una misión concreta: mejorar la adherencia terapéutica y optimizar la gestión sanitaria mediante soluciones digitales accesibles, seguras y escalables.\n\nCreemos en el potencial de la tecnología para transformar la atención sanitaria. Por ello, desarrollamos una plataforma que conecta a pacientes, cuidadores y profesionales de la salud, facilitando el seguimiento de tratamientos médicos en tiempo real y reduciendo los costes derivados de la falta de adherencia.\n\nNos especializamos en el diseño e implementación de soluciones B2B orientadas a hospitales, aseguradoras y centros sociosanitarios, integrando estándares informáticos del sector salud y funcionalidades adaptadas a usuarios mayores o con discapacidad. Nuestro objetivo es claro: ofrecer herramientas inteligentes que fortalezcan los sistemas sanitarios y mejoren la calidad de vida de las personas.\n\nEl futuro de la salud pasa por la digitalización responsable. Con MediTracker, damos un paso decisivo hacia una sanidad más eficiente, humana y sostenible.",
     
     "Why": [
-      "Mejorar la adherencia terapéutica en pacientes crónicos mediante recordatorios inteligentes y seguimiento automatizado.",
-      "Reducir costes sanitarios prevenibles al evitar hospitalizaciones derivadas de un mal cumplimiento del tratamiento.",
-      "Conectar pacientes, cuidadores y profesionales de forma eficiente, facilitando una atención sanitaria más coordinada y proactiva.",
-      "Ofrecer una solución escalable, accesible y compatible con los estándares del sector salud, adaptada a usuarios mayores y con discapacidad.",
-      "Contribuir a la transformación digital del sistema sanitario mediante una plataforma tecnológica sostenible y de alto impacto social."
+      "Mejoramos la adherencia terapéutica con recordatorios inteligentes y seguimiento.",
+      "Reducimos costes sanitarios evitando hospitalizaciones innecesarias.",
+      "Conectamos pacientes, cuidadores y profesionales para una atención más coordinada.",
+      "Ofrecemos una solución accesible y compatible con los estándares del sector salud.",
+      "Impulsamos la digitalización sanitaria con una plataforma sostenible y de impacto."
     ]
   }
   ,
@@ -172,7 +172,7 @@
       "img": "img/team/seijo.jpg",
       "name": "Pablo Seijo",
       "job": "Desarrollador Frontend",
-      "stack": ["kotlin", "docker"],
+      "stack": ["kotlin", "docker", "react"],
       "linkedin": "https://www.linkedin.com/in/pablo-seijo-7055141b0/"
     },
     {
