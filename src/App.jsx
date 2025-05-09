@@ -12,6 +12,9 @@ import SmoothScroll from "smooth-scroll";
 import "./App.css";
 import { UseCases } from "./components/UseCases";
 import { ImpactStats } from "./components/ImpactStats";
+import { DashboardWrapper } from "./components/DashboardWrapper";
+import Dashboard from "./components/Dashboard";
+
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -28,6 +31,10 @@ const App = () => {
     <div>
       <Navigation />
       <Header data={landingPageData.Header} />
+
+
+      <Dashboard />
+
       <Features data={landingPageData.Features} />
       <UseCases data={landingPageData.UseCases} />
       <Services data={landingPageData.Services} />
